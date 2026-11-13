@@ -22,7 +22,19 @@ CAPTIONS = [
     "Loop it. You won't find the cut.",
     "Guess how many balls before it breaks.",
 ]
-TAGS = "#oddlysatisfying #satisfying #physics #simulation #loop"
+ASKS = [
+    "How many balls do you think made it out?",
+    "Which color wave was the biggest? Tell me below.",
+    "Did you spot where the loop restarts?",
+    "Send this to someone who can't stop watching these.",
+    "Guess the final count before you rewatch.",
+]
+ABOUT = "A satisfying physics simulation made entirely with code. New loop twice a day."
+# Instagram allows at most 5 hashtags per post; keep them specific to the niche.
+TAGS = "#oddlysatisfying #satisfying #physicssimulation #simulation #loop"
+
+def caption(n):
+    return "\n\n".join([CAPTIONS[(n - 1) % len(CAPTIONS)], ASKS[(n - 1) % len(ASKS)], ABOUT, TAGS])
 
 def crush_log(seed, rot):
     env = dict(os.environ, DRY='1', SEED=str(seed), ROT=str(rot))
@@ -56,7 +68,7 @@ def main():
     st['next'] = n + 1
     st['used_seeds'].append(seed)
     json.dump(st, open('state.json', 'w'), indent=1)
-    post = {'n': n, 'file': name, 'url': RAW + name, 'caption': CAPTIONS[(n - 1) % len(CAPTIONS)] + '\n\n' + TAGS,
+    post = {'n': n, 'file': name, 'url': RAW + name, 'caption': caption(n),
             'seed': seed, 'rot': rot, 'crushed': crushed, 'finale': finale}
     json.dump(post, open('post.json', 'w'), indent=1)
     print(json.dumps(post, indent=1))
