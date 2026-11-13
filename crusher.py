@@ -2,7 +2,7 @@
 """Crusher - an oddly satisfying physics loop drawn entirely in code.
 Usage:  python3 crusher.py            full render -> crusher.mp4
         DRY=1 python3 crusher.py      physics only, prints the crush log
-        SEED=7 MULT=8 python3 crusher.py
+        SEED=7 MULT=8 ROT=3 CRF=22 python3 crusher.py
 """
 import os, math, subprocess, wave
 import numpy as np, cv2, pymunk
@@ -44,6 +44,8 @@ BLACK, WHITE = (0, 0, 0), (255, 255, 255)
 STEEL, EDGE, HI, PAD, BOLT = hx('8E9198'), hx('5C5F66'), hx('B9BCC2'), hx('E9A23B'), hx('2E3034')
 WAVES = [hx(c) for c in ('FF8A1F', '4B2BFF', '3BFF3B', 'FF2D7A', '22C3F5',
                          'FFF000', 'A01EFF', '1FF58A', 'FF3B1F')]
+ROT = int(os.environ.get('ROT', 0)) % len(WAVES)   # rotate the color order for variety
+WAVES = WAVES[ROT:] + WAVES[:ROT]
 RED = len(WAVES) - 1
 
 ALLP = [(p, OPEN_T, 'n') for p in PINCHES] + [(FINALE, OPEN_T, 'f'), (LOOP_PINCH, LOOP_OPEN_T, 'l')]
@@ -403,7 +405,7 @@ def main():
     pipe = None
     if not DRY:
         pipe = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'bgr24',
-                                 '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-', '-c:v', 'libx264', '-crf', '17',
+                                 '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-', '-c:v', 'libx264', '-crf', os.environ.get('CRF', '17'),
                                  '-pix_fmt', 'yuv420p', '-preset', 'veryfast', '_video.mp4'], stdin=subprocess.PIPE)
     for f in range(nframes):
         t = f / FPS
