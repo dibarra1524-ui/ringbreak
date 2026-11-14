@@ -21,7 +21,7 @@
     "media_reel_avg_watch_time": 13103,
     "media_reel_skip_rate": 0.275
    },
-   "metrics_at": "2026-11-14T18:57:33+00:00",
+   "metrics_at": "2026-11-14T20:47:34+00:00",
    "score": 10.5826,
    "lift": 0.0
   },
@@ -46,7 +46,36 @@
     "media_reel_avg_watch_time": 11789,
     "media_reel_skip_rate": 0.3
    },
-   "metrics_at": "2026-11-14T18:57:33+00:00"
+   "metrics_at": "2026-11-14T20:47:34+00:00"
+  },
+  {
+   "n": 3,
+   "seed": 26,
+   "rot": 2,
+   "recipe": {
+    "arena": "hex",
+    "spin": 1,
+    "angle": -45,
+    "palette": "mono",
+    "bg": "forest",
+    "fx": "trail",
+    "ball": "hollow",
+    "ball_r": 7.5,
+    "mult": 6,
+    "shake": 1,
+    "counter": 1,
+    "sound": "classic",
+    "field": "vortex",
+    "pegs": "arc",
+    "bounce": "bouncy",
+    "hook": 12,
+    "ask": 0,
+    "force": 1.23,
+    "pull": 1.63,
+    "assist": 1.86
+   },
+   "file": "videos/003-crusher-seed26-rot2.mp4",
+   "media_id": null
   }
  ]
 }
