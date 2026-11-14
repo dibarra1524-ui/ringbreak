@@ -1,0 +1,52 @@
+{
+ "posts": [
+  {
+   "n": 1,
+   "seed": 4,
+   "rot": 0,
+   "recipe": {
+    "hook": 0,
+    "ask": 0
+   },
+   "file": "videos/001-crusher-seed4.mp4",
+   "media_id": "18439989145179317",
+   "posted_at": "2026-11-13T23:23:43+0000",
+   "metrics": {
+    "media_views": 1889,
+    "media_reach": 1413,
+    "media_like_count": 21,
+    "media_comments_count": 0,
+    "media_shares": 0,
+    "media_saved": 0,
+    "media_reel_avg_watch_time": 13103,
+    "media_reel_skip_rate": 0.275
+   },
+   "metrics_at": "2026-11-14T18:57:33+00:00",
+   "score": 10.5826,
+   "lift": 0.0
+  },
+  {
+   "n": 2,
+   "seed": 5,
+   "rot": 1,
+   "recipe": {
+    "hook": 1,
+    "ask": 1
+   },
+   "file": "videos/002-crusher-seed5-rot1.mp4",
+   "media_id": "18229859881327143",
+   "posted_at": "2026-11-14T17:44:00+0000",
+   "metrics": {
+    "media_views": 165,
+    "media_reach": 102,
+    "media_like_count": 2,
+    "media_comments_count": 1,
+    "media_shares": 0,
+    "media_saved": 0,
+    "media_reel_avg_watch_time": 11789,
+    "media_reel_skip_rate": 0.3
+   },
+   "metrics_at": "2026-11-14T18:57:33+00:00"
+  }
+ ]
+}
