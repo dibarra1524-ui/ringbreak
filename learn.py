@@ -55,12 +55,25 @@ TRAITS = {
     'shake':   [0, 1],
     'counter': [0, 1],
     'sound':   ['classic', 'penta'],
+    # physics
+    'field':   ['pull', 'vortex', 'gravity', 'tumble', 'pulse'],
+    'pegs':    ['none', 'arc', 'field'],
+    'bounce':  ['normal', 'bouncy', 'soft'],
     'hook':    list(range(len(CAPTIONS))),
     'ask':     list(range(len(ASKS))),
 }
 VISUAL = [k for k in TRAITS if k not in ('hook', 'ask')]
 CLASSIC = {'arena': 'circle', 'spin': 0, 'angle': 0, 'palette': 'neon', 'bg': 'black', 'fx': 'none',
-           'ball': 'solid', 'ball_r': 9.0, 'mult': 8, 'shake': 0, 'counter': 0, 'sound': 'classic'}
+           'ball': 'solid', 'ball_r': 9.0, 'mult': 8, 'shake': 0, 'counter': 0, 'sound': 'classic',
+           'field': 'pull', 'pegs': 'none', 'bounce': 'normal'}
+# Continuous physics knobs. Every video gets fresh values; over time they drift toward the values of
+# posts that scored above their neighbours (a simple cross-entropy / evolution strategy).
+GENES = {'force': (0.5, 1.8, 1.0),     # strength of the field (gravity, swirl, pulse)
+         'pull': (1.3, 3.0, 2.0),      # pull toward the centre
+         'assist': (0.9, 2.2, 1.4)}    # how hard the jaws suck balls in right before a slam
+NOVELTY = 0.6      # bonus (in noise units) for options the formula has barely tried - new inventions get airtime
+RETIRE_AT = 6.0    # evidence needed before a clearly weak option is retired
+RETIRE_LIFT = -0.8 # ... and how far below average (in noise units) it must be
 NAMES = {'arena': {'circle': 'circle', 'square': 'square', 'diamond': 'diamond', 'pent': 'pentagon',
                    'hex': 'hexagon', 'oct': 'octagon', 'squircle': 'rounded square'}}
 
@@ -149,6 +162,30 @@ def stats(h):
     return acc, sigma, len(rows)
 
 
+def retired(acc, sigma):
+    """Options that have had a fair chance and keep scoring clearly below average are no longer picked."""
+    out = {}
+    for k, opts in TRAITS.items():
+        bad = [o for o in opts if acc[k][json.dumps(o)][0] >= RETIRE_AT and acc[k][json.dumps(o)][1] <= RETIRE_LIFT * sigma]
+        out[k] = bad if len(bad) < len(opts) - 1 else []
+    return out
+
+
+def gene_dist(h, name):
+    """Mean and spread for a gene, pulled toward the values of posts that beat their neighbours."""
+    lo, hi, d = GENES[name]
+    good = [(p['recipe'][name], p['lift']) for p in h['posts']
+            if p.get('lift', 0) > 0 and name in p.get('recipe', {})]
+    if not good:
+        return d, (hi - lo) / 4
+    w = sum(l for _, l in good)
+    mu = sum(v * l for v, l in good) / w
+    k = min(1.0, len(good) / 8)                       # trust the winners more as they pile up
+    mu = (1 - k) * d + k * mu
+    sd = max((hi - lo) / 10, (hi - lo) / 4 * (1 - 0.6 * k))   # never stops exploring
+    return mu, sd
+
+
 def explore_rate(n_scored):
     return max(0.08, 0.5 * 0.97 ** n_scored)   # starts at 50% random, settles at 8%
 
@@ -163,6 +200,7 @@ def choose(h=None, rng=None):
     rng = rng or random.Random()
     acc, sigma, n_scored = stats(h)
     eps = explore_rate(n_scored)
+    gone = retired(acc, sigma)
     past = [dict(CLASSIC, **p.get('recipe', {})) for p in h['posts']]
     used = {signature(r) for r in past}
     recent = past[-6:]
@@ -170,11 +208,17 @@ def choose(h=None, rng=None):
     for attempt in range(600):
         r = {}
         for k, opts in TRAITS.items():
+            opts = [o for o in opts if o not in gone[k]]
             if rng.random() < eps:
                 r[k] = rng.choice(opts)
             else:   # Thompson sampling: draw a plausible lift for every option, keep the best draw
-                r[k] = max(opts, key=lambda o: rng.gauss(acc[k][json.dumps(o)][1],
-                                                           sigma / math.sqrt(acc[k][json.dumps(o)][0] + 1.0)))
+                def draw(o):
+                    w, m = acc[k][json.dumps(o)]
+                    return rng.gauss(m, sigma / math.sqrt(w + 1.0)) + NOVELTY * sigma * max(0.0, 1 - w)
+                r[k] = max(opts, key=draw)
+        for g, (lo, hi, _d) in GENES.items():
+            mu, sd = gene_dist(h, g)
+            r[g] = round(min(hi, max(lo, rng.gauss(mu, sd))), 2)
         if r['arena'] == 'circle':
             r['spin'] = 0
         if int(r['angle']) == 90:
@@ -215,6 +259,8 @@ def look(r):
         bits.append('a soft glow around the balls')
     if r['counter']:
         bits.append('a white digital ball counter near the top')
+    if r.get('pegs', 'none') != 'none':
+        bits.append('a few small grey round pegs inside the outline (they may already be gone late in the video)')
     return '; '.join(bits)
 
 
@@ -278,6 +324,12 @@ def report(h=None):
             lines.append('| %03d | %.2f | %+.2f | %s | %.1fs | %s |' % (
                 p['n'], p['score'], lift, m.get('media_views'),
                 float(m.get('media_reel_avg_watch_time') or 0) / 1000, m.get('media_reel_skip_rate')))
+    gone = retired(acc, sigma)
+    lines += ['', '## Physics knobs (drift toward what works)', '']
+    for g in GENES:
+        mu, sd = gene_dist(h, g)
+        lines.append('- %s: centre %.2f, spread %.2f' % (g, mu, sd))
+    lines += ['', '## Retired options', ''] + (['- %s=%s' % (k, o) for k in gone for o in gone[k]] or ['- none yet'])
     open(os.path.join(HERE, 'LEARNING.md'), 'w').write('\n'.join(lines) + '\n')
     best.sort(reverse=True)
     if best:

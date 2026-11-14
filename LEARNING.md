@@ -107,6 +107,32 @@ Lift = how far a post scored above or below its neighbours. Positive is good.
 | classic | 0.4 | +0.00 |
 | penta | 0.0 | +0.00 |
 
+## field
+
+| option | evidence | lift |
+|---|---|---|
+| pull | 0.4 | +0.00 |
+| vortex | 0.0 | +0.00 |
+| gravity | 0.0 | +0.00 |
+| tumble | 0.0 | +0.00 |
+| pulse | 0.0 | +0.00 |
+
+## pegs
+
+| option | evidence | lift |
+|---|---|---|
+| none | 0.4 | +0.00 |
+| arc | 0.0 | +0.00 |
+| field | 0.0 | +0.00 |
+
+## bounce
+
+| option | evidence | lift |
+|---|---|---|
+| normal | 0.4 | +0.00 |
+| bouncy | 0.0 | +0.00 |
+| soft | 0.0 | +0.00 |
+
 ## hook
 
 | option | evidence | lift |
@@ -141,3 +167,13 @@ Lift = how far a post scored above or below its neighbours. Positive is good.
 | video | score | lift | views | avg watch | skip |
 |---|---|---|---|---|---|
 | 001 | 10.58 | +0.00 | 1889 | 13.1s | 0.275 |
+
+## Physics knobs (drift toward what works)
+
+- force: centre 1.00, spread 0.33
+- pull: centre 2.00, spread 0.42
+- assist: centre 1.40, spread 0.33
+
+## Retired options
+
+- none yet

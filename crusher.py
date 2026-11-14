@@ -37,8 +37,13 @@ FINALE = 17.5
 LOOP_PINCH, LOOP_OPEN_T = 19.3, 0.7
 CAPSULE = (105.0, 118.0)
 
-PULL, VMAX = float(os.environ.get('PULL', 2.0)), 1100.0
-EL_BALL, EL_MACHINE, EL_WALL = 0.95, 0.6, 1.0
+PULL, VMAX = float(os.environ.get('PULL', RECIPE.get('pull', 2.0))), 1100.0
+BOUNCE = RECIPE.get('bounce', 'normal')    # normal | bouncy | soft
+EL_BALL, EL_MACHINE, EL_WALL = {'normal': (0.95, 0.6, 1.0), 'bouncy': (1.0, 0.8, 1.0), 'soft': (0.7, 0.4, 0.85)}[BOUNCE]
+FIELD = RECIPE.get('field', 'pull')        # pull | vortex | gravity | tumble | pulse
+FORCE = float(RECIPE.get('force', 1.0))    # strength of the field, mutated by learn.py
+PEGS = RECIPE.get('pegs', 'none')          # none | arc | field
+ASSIST = float(os.environ.get('ASSIST', RECIPE.get('assist', 1.4)))
 SPAWN_FRAMES, SPAWN_SPEED, SPAWN_FAN = 9, (250.0, 520.0), 110.0
 BLAST_SPEED = (650.0, 1100.0)
 
@@ -171,6 +176,27 @@ def rad_at(rad, x, y):
     return rad[int(round(math.atan2(y - CY, x - CX) / (2 * math.pi) * NA)) % NA]
 
 
+# ----------------------------------------------------------------- PEGS
+def peg_layout():
+    """Small fixed bumpers inside the arena, kept out of the jaws' path."""
+    if PEGS == 'arc':
+        pts = [(300, a) for a in (-122, -90, -58, 58, 90, 122)] + [(200, -90), (200, 90)]
+        r = 14.0
+    elif PEGS == 'field':
+        pts = [(rr, a) for rr, a0 in ((215, -90), (300, -90), (215, 90), (300, 90))
+               for a in (a0 - 36, a0, a0 + 36)] + [(330, a) for a in (-145, -35, 35, 145)]
+        r = 10.0
+    else:
+        return []
+    inner = float(RAD.min())
+    out = []
+    for rr, a in pts:
+        x, y = CX + rr * math.cos(math.radians(a)), CY + rr * math.sin(math.radians(a))
+        if math.hypot(x - CX, y - CY) + r < inner - 14 and abs(y - CY) > PH / 2 + r + 18:
+            out.append((x, y, r))
+    return out
+
+
 # ----------------------------------------------------------------- PHYSICS
 class Sim:
     def __init__(s):
@@ -188,6 +214,13 @@ class Sim:
             segs.append(seg)
         sp.add(s.wall, *segs)
         s.trail = None
+        s.pegs = []           # [x, y, r, shape or None, last hit time, hit color]
+        for x, y, r in peg_layout():
+            c = pymunk.Circle(sp.static_body, r, (x, y))
+            c.elasticity, c.friction = 1.0, 0
+            sp.add(c)
+            s.pegs.append([x, y, r, c, -9.0, 0])
+        s.peg_hits = []
         s.jaws = []
         for sgn in (1, -1):   # +1 = left jaw (arms point +x), -1 = right jaw
             b = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
@@ -208,6 +241,7 @@ class Sim:
         s.absorbed, s.parts, s.part_pending = 0, None, None
         s.log, s.spawn_events, s.flash_frame = [], [], None
         s.total_spawned = 1
+        s.early_cap = False
         s.add_ball(FIRST_POS, (0, 0), FIRST_R, 0)
 
     def add_ball(s, pos, vel, r, ci):
@@ -242,6 +276,25 @@ class Sim:
                 v = s.rng.uniform(*SPAWN_SPEED)
                 s.add_ball((x, y), (sg * math.cos(ang) * v, math.sin(ang) * v), BALL_R, pend[2])
         s.pending = [p for p in s.pending if p[1] > 0 and p[0] > 0]
+        # pegs light up when a ball touches them, and vanish as the collapsing ring passes them
+        if s.pegs and s.balls:
+            P = np.array([(bl[0].position.x, bl[0].position.y) for bl in s.balls])
+            R_ = np.array([bl[2] for bl in s.balls])
+            for pg in s.pegs:
+                if pg[3] is None:
+                    continue
+                d = np.hypot(P[:, 0] - pg[0], P[:, 1] - pg[1]) - R_ - pg[2]
+                i = int(np.argmin(d))
+                if d[i] < 2.5:
+                    if t - pg[4] > 0.09:
+                        s.peg_hits.append(t)
+                    pg[4], pg[5] = t, s.balls[i][3]
+        if t >= SHRINK[0]:
+            rr = ring_radii(t)
+            for pg in s.pegs:
+                if pg[3] is not None and (rr is None or rad_at(rr[0], pg[0], pg[1]) < math.hypot(pg[0] - CX, pg[1] - CY) + pg[2]):
+                    s.space.remove(pg[3])
+                    pg[3] = None
         # the collapsing ring swallows every ball it passes
         if t >= SHRINK[0] and s.balls:
             rr = ring_radii(t) if t < SHRINK[1] else None
@@ -284,7 +337,19 @@ class Sim:
             for b, sgn in s.jaws:   # kinematic: set position AND velocity every substep
                 b.position = (CX - sgn * g0 / 2, CY)
                 b.velocity = (-sgn * (g1 - g0) / 2 / dt, 0)
-            pull = PULL * dt if 0.2 <= ts < SHRINK[0] else 0.0
+            on = 0.2 <= ts < SHRINK[0]
+            pull, gx, gy, tang = (PULL * dt if on else 0.0), 0.0, 0.0, 0.0
+            if on and FIELD == 'pulse':      # the pull breathes in and out 4 times per loop
+                pull *= 1 + 0.85 * FORCE * math.sin(2 * math.pi * 4 * ts / DUR)
+            elif on and FIELD == 'vortex':   # everything swirls around the centre
+                tang = 340.0 * FORCE * dt
+            elif on and FIELD in ('gravity', 'tumble'):   # gravity pointing down the screen, or turning once per loop
+                ga = math.radians(ANGLE) + (2 * math.pi * ts / DUR if FIELD == 'tumble' else 0.0)
+                gx, gy = 650.0 * FORCE * dt * math.sin(ga), 650.0 * FORCE * dt * math.cos(ga)
+                pull *= 0.55
+            if on and any(kd == 'n' and p_ - 1.0 <= ts < p_ - CLOSE_T for p_, _, kd in ALLP):
+                pull += ASSIST * PULL * dt          # right before each slam the jaws suck balls in
+                gx, gy, tang = gx * 0.3, gy * 0.3, tang * 0.3
             for bl in s.balls:
                 body = bl[0]
                 v, p = body.velocity, body.position
@@ -293,7 +358,11 @@ class Sim:
                 if sp2 > VMAX * VMAX:
                     k_ = VMAX / math.sqrt(sp2)
                     vx, vy = vx * k_, vy * k_
-                body.velocity = (vx - pull * (p.x - CX), vy - pull * (p.y - CY))
+                dx, dy = p.x - CX, p.y - CY
+                if tang:
+                    d = math.hypot(dx, dy) + 1e-6
+                    vx, vy = vx - tang * dy / d, vy + tang * dx / d
+                body.velocity = (vx - pull * dx + gx, vy - pull * dy + gy)
             s.space.step(dt)
             if s.np >= len(ALLP):
                 continue
@@ -318,6 +387,8 @@ class Sim:
                         s.pending.append([n, SPAWN_FRAMES, ci, n])
                     s.total_spawned += n
                     note = '' if n == crushed * MULT else '  [ring full, capped]'
+                    if note and s.np < 6:
+                        s.early_cap = True
                     s.log.append(f'pinch {s.np + 1} @ {p:5.1f}s: crushed {crushed:4d} -> spawned {n:4d} (x{MULT}), '
                                  f'in ring {len(s.balls) + n:4d}{note}')
                     s.spawn_events.append((p, n))
@@ -481,6 +552,15 @@ def draw(sim, t, f):
         draw_ring()
     for _, sgn in sim.jaws:
         draw_rail(img, CX - sgn * g / 2, sgn)
+    rr_now = ring_radii(t) if t >= LOOP_PINCH else None
+    for x, y, r, shape, hit, hc in sim.pegs:
+        if shape is None and not (rr_now is not None and rad_at(rr_now[0], x, y) > math.hypot(x - CX, y - CY) + r):
+            continue
+        k = max(0.0, 1 - (t - hit) / 0.3)
+        circ(img, x, y, r + 3 * k, EDGE)
+        col = tuple(int(STEEL[i] + (WAVES[hc][i] - STEEL[i]) * k) for i in range(3))
+        circ(img, x, y, r - 2.5 + 3 * k, col)
+        circ(img, x - 0.3 * r, y - 0.3 * r, 0.22 * r, HI)
     lay = img if FX == 'none' else np.zeros((H, W, 3), np.uint8)
     for body, _, r, ci in sim.balls:
         p = body.position
@@ -556,6 +636,13 @@ def make_audio(sim, path):
                 hz = 392.0 * 2 ** (((0, 2, 4, 7, 9)[k % 5] + 12 * ((k // 5) % 2)) / 12)
             add(p + 0.035 + j * 0.022, np.sin(2 * np.pi * hz * tt) * np.exp(-tt / (0.014 if SOUND == 'penta' else 0.008)),
                 0.22 + 0.14 * min(1, cnt / 500))
+    last = -1.0
+    for t0 in sim.peg_hits:                                          # glassy tick when a peg is hit
+        if t0 - last < 0.045:
+            continue
+        last = t0
+        tt = np.arange(int(0.05 * sr)) / sr
+        add(t0, np.sin(2 * np.pi * rng.uniform(2300, 3300) * tt) * np.exp(-tt / 0.012), 0.09)
     tt = np.arange(int(1.6 * sr)) / sr                               # deep boom on the finale
     ph = 2 * np.pi * np.cumsum(55 * np.exp(-tt * 0.6) + 28) / sr
     noise = np.convolve(rng.standard_normal(len(tt)), np.ones(200) / 200, 'same') * 8
@@ -586,6 +673,8 @@ def main():
         if pipe:
             pipe.stdin.write(draw(sim, t, f).tobytes())
         sim.advance(t)
+        if DRY and (sim.early_cap or (sim.np == 4 and sim.spawn_events[-1][1] > 40 * MULT)):
+            break                 # grew far too fast - no need to finish a test run
     print(f'seed {SEED}, pull {PULL}, recipe {json.dumps(RECIPE)}')
     print('\n'.join(sim.log))
     if pipe:

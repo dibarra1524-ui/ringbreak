@@ -16,18 +16,29 @@ def crush_log(seed, rot, recipe):
     return crushed, int(fin.group(1)) if fin else 0, out
 
 
+def good(crushed, finale, log, recipe):
+    """A run is worth posting if it starts small, builds steadily, and only fills the ring at the very end."""
+    capped = [i for i, line in enumerate(log.splitlines()) if 'capped' in line]
+    return (len(crushed) == 7 and min(crushed[:3]) >= 1 and finale >= 250 * recipe['mult']
+            and crushed[3] <= 40 and not any(i < 7 for i in capped))
+
+
 def find(st, hist, rot):
     """Try up to 4 fresh recipes, 20 seeds each; fall back to the classic look so a run never comes up empty."""
     seed = max(st['used_seeds']) + 1
     for attempt in range(5):
         recipe = learn.choose(hist)
         if attempt == 4:
-            recipe = dict(learn.CLASSIC, hook=recipe['hook'], ask=recipe['ask'])
+            recipe = dict(learn.CLASSIC, hook=recipe['hook'], ask=recipe['ask'], force=1.0, pull=2.0, assist=1.4)
         for _ in range(20):
-            crushed, finale, _log = crush_log(seed, rot, recipe)
-            if len(crushed) == 7 and min(crushed[:3]) >= 1 and finale >= 250 * recipe['mult']:
+            crushed, finale, log = crush_log(seed, rot, recipe)
+            if good(crushed, finale, log, recipe):
                 return recipe, seed, crushed, finale
             seed += 1
+            # steer the suck-in strength: too fast -> weaker, too slow -> stronger
+            fast = 'capped' in log.split('pinch 7')[0] or (len(crushed) > 3 and crushed[3] > 40)
+            lo, hi, _d = learn.GENES['assist']
+            recipe['assist'] = round(min(hi, max(lo, recipe['assist'] + (-0.15 if fast else 0.15))), 2)
     sys.exit('no seed with a good crush log found')
 
 
