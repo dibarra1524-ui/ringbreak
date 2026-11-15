@@ -12,18 +12,18 @@
    "media_id": "18439989145179317",
    "posted_at": "2026-11-13T23:23:43+0000",
    "metrics": {
-    "media_views": 1889,
-    "media_reach": 1413,
+    "media_views": 1892,
+    "media_reach": 1417,
     "media_like_count": 21,
     "media_comments_count": 0,
-    "media_shares": 0,
+    "media_shares": 2,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 13103,
+    "media_reel_avg_watch_time": 13121,
     "media_reel_skip_rate": 0.275
    },
-   "metrics_at": "2026-11-14T20:47:34+00:00",
-   "score": 10.5826,
-   "lift": 0.0
+   "metrics_at": "2026-11-15T01:42:14+00:00",
+   "score": 10.7176,
+   "lift": 2.388
   },
   {
    "n": 2,
@@ -37,16 +37,18 @@
    "media_id": "18229859881327143",
    "posted_at": "2026-11-14T17:44:00+0000",
    "metrics": {
-    "media_views": 165,
-    "media_reach": 102,
+    "media_views": 170,
+    "media_reach": 120,
     "media_like_count": 2,
     "media_comments_count": 1,
     "media_shares": 0,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 11789,
-    "media_reel_skip_rate": 0.3
+    "media_reel_avg_watch_time": 11566,
+    "media_reel_skip_rate": 0.352
    },
-   "metrics_at": "2026-11-14T20:47:34+00:00"
+   "metrics_at": "2026-11-15T01:42:14+00:00",
+   "score": 8.3296,
+   "lift": -2.388
   },
   {
    "n": 3,
@@ -76,7 +78,47 @@
    },
    "file": "videos/003-crusher-seed26-rot2.mp4",
    "media_id": "18082976939395568",
-   "posted_at": "2026-11-14T20:51:15+00:00"
+   "posted_at": "2026-11-14T20:49:41+0000",
+   "metrics": {
+    "media_views": 159,
+    "media_reach": 135,
+    "media_like_count": 0,
+    "media_comments_count": 0,
+    "media_shares": 0,
+    "media_saved": 0,
+    "media_reel_avg_watch_time": 8559,
+    "media_reel_skip_rate": 0.401
+   },
+   "metrics_at": "2026-11-15T01:42:14+00:00"
+  },
+  {
+   "n": 4,
+   "seed": 31,
+   "rot": 3,
+   "recipe": {
+    "arena": "pent",
+    "spin": 0,
+    "angle": 45,
+    "palette": "pastel",
+    "bg": "plum",
+    "fx": "trail+glow",
+    "ball": "hollow",
+    "ball_r": 10.5,
+    "mult": 8,
+    "shake": 1,
+    "counter": 1,
+    "sound": "penta",
+    "field": "tumble",
+    "pegs": "field",
+    "bounce": "soft",
+    "hook": 3,
+    "ask": 4,
+    "force": 0.92,
+    "pull": 1.3,
+    "assist": 1.8
+   },
+   "file": "videos/004-crusher-seed31-rot3.mp4",
+   "media_id": null
   }
  ]
 }

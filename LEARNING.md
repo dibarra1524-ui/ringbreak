@@ -1,6 +1,6 @@
 # What the Ringbreak formula has learned
 
-Posts in history: 2. Posts with usable numbers: 1. Random-try rate right now: 48%.
+Posts in history: 3. Posts with usable numbers: 2. Random-try rate right now: 47%.
 
 Lift = how far a post scored above or below its neighbours. Positive is good.
 
@@ -8,7 +8,7 @@ Lift = how far a post scored above or below its neighbours. Positive is good.
 
 | option | evidence | lift |
 |---|---|---|
-| circle | 0.4 | +0.00 |
+| circle | 0.7 | +0.52 |
 | square | 0.0 | +0.00 |
 | diamond | 0.0 | +0.00 |
 | pent | 0.0 | +0.00 |
@@ -20,7 +20,7 @@ Lift = how far a post scored above or below its neighbours. Positive is good.
 
 | option | evidence | lift |
 |---|---|---|
-| 0 | 0.4 | +0.00 |
+| 0 | 0.7 | +0.52 |
 | 1 | 0.0 | +0.00 |
 | -1 | 0.0 | +0.00 |
 
@@ -28,7 +28,7 @@ Lift = how far a post scored above or below its neighbours. Positive is good.
 
 | option | evidence | lift |
 |---|---|---|
-| 0 | 0.4 | +0.00 |
+| 0 | 0.7 | +0.52 |
 | 90 | 0.0 | +0.00 |
 | 45 | 0.0 | +0.00 |
 | -45 | 0.0 | +0.00 |
@@ -37,7 +37,7 @@ Lift = how far a post scored above or below its neighbours. Positive is good.
 
 | option | evidence | lift |
 |---|---|---|
-| neon | 0.4 | +0.00 |
+| neon | 0.7 | +0.52 |
 | pastel | 0.0 | +0.00 |
 | fire | 0.0 | +0.00 |
 | ice | 0.0 | +0.00 |
@@ -48,7 +48,7 @@ Lift = how far a post scored above or below its neighbours. Positive is good.
 
 | option | evidence | lift |
 |---|---|---|
-| black | 0.4 | +0.00 |
+| black | 0.7 | +0.52 |
 | navy | 0.0 | +0.00 |
 | plum | 0.0 | +0.00 |
 | forest | 0.0 | +0.00 |
@@ -57,7 +57,7 @@ Lift = how far a post scored above or below its neighbours. Positive is good.
 
 | option | evidence | lift |
 |---|---|---|
-| none | 0.4 | +0.00 |
+| none | 0.7 | +0.52 |
 | trail | 0.0 | +0.00 |
 | glow | 0.0 | +0.00 |
 | trail+glow | 0.0 | +0.00 |
@@ -66,7 +66,7 @@ Lift = how far a post scored above or below its neighbours. Positive is good.
 
 | option | evidence | lift |
 |---|---|---|
-| solid | 0.4 | +0.00 |
+| solid | 0.7 | +0.52 |
 | hollow | 0.0 | +0.00 |
 | shine | 0.0 | +0.00 |
 
@@ -74,44 +74,44 @@ Lift = how far a post scored above or below its neighbours. Positive is good.
 
 | option | evidence | lift |
 |---|---|---|
+| 9.0 | 0.7 | +0.52 |
 | 7.5 | 0.0 | +0.00 |
-| 9.0 | 0.4 | +0.00 |
 | 10.5 | 0.0 | +0.00 |
 
 ## mult
 
 | option | evidence | lift |
 |---|---|---|
+| 8 | 0.7 | +0.52 |
 | 6 | 0.0 | +0.00 |
-| 8 | 0.4 | +0.00 |
 | 10 | 0.0 | +0.00 |
 
 ## shake
 
 | option | evidence | lift |
 |---|---|---|
-| 0 | 0.4 | +0.00 |
+| 0 | 0.7 | +0.52 |
 | 1 | 0.0 | +0.00 |
 
 ## counter
 
 | option | evidence | lift |
 |---|---|---|
-| 0 | 0.4 | +0.00 |
+| 0 | 0.7 | +0.52 |
 | 1 | 0.0 | +0.00 |
 
 ## sound
 
 | option | evidence | lift |
 |---|---|---|
-| classic | 0.4 | +0.00 |
+| classic | 0.7 | +0.52 |
 | penta | 0.0 | +0.00 |
 
 ## field
 
 | option | evidence | lift |
 |---|---|---|
-| pull | 0.4 | +0.00 |
+| pull | 0.7 | +0.52 |
 | vortex | 0.0 | +0.00 |
 | gravity | 0.0 | +0.00 |
 | tumble | 0.0 | +0.00 |
@@ -121,7 +121,7 @@ Lift = how far a post scored above or below its neighbours. Positive is good.
 
 | option | evidence | lift |
 |---|---|---|
-| none | 0.4 | +0.00 |
+| none | 0.7 | +0.52 |
 | arc | 0.0 | +0.00 |
 | field | 0.0 | +0.00 |
 
@@ -129,7 +129,7 @@ Lift = how far a post scored above or below its neighbours. Positive is good.
 
 | option | evidence | lift |
 |---|---|---|
-| normal | 0.4 | +0.00 |
+| normal | 0.7 | +0.52 |
 | bouncy | 0.0 | +0.00 |
 | soft | 0.0 | +0.00 |
 
@@ -137,8 +137,7 @@ Lift = how far a post scored above or below its neighbours. Positive is good.
 
 | option | evidence | lift |
 |---|---|---|
-| One ball in. Thousands out. | 0.4 | +0.00 |
-| Wait for the ring to break. | 0.0 | +0.00 |
+| One ball in. Thousands out. | 0.5 | +0.83 |
 | It starts with one. | 0.0 | +0.00 |
 | Every crush makes {m} more. | 0.0 | +0.00 |
 | How many can the ring hold? | 0.0 | +0.00 |
@@ -151,22 +150,24 @@ Lift = how far a post scored above or below its neighbours. Positive is good.
 | Which color wave is your favorite? | 0.0 | +0.00 |
 | Loop it. You won't find the cut. | 0.0 | +0.00 |
 | Guess how many balls before it breaks. | 0.0 | +0.00 |
+| Wait for the ring to break. | 0.2 | -0.34 |
 
 ## ask
 
 | option | evidence | lift |
 |---|---|---|
-| How many balls do you think made it out? | 0.4 | +0.00 |
-| Which color wave was the biggest? Tell me below. | 0.0 | +0.00 |
+| How many balls do you think made it out? | 0.5 | +0.83 |
 | Did you spot where the loop restarts? | 0.0 | +0.00 |
 | Send this to someone who can't stop watching these. | 0.0 | +0.00 |
 | Guess the final count before you rewatch. | 0.0 | +0.00 |
+| Which color wave was the biggest? Tell me below. | 0.2 | -0.34 |
 
 ## Posts
 
 | video | score | lift | views | avg watch | skip |
 |---|---|---|---|---|---|
-| 001 | 10.58 | +0.00 | 1889 | 13.1s | 0.275 |
+| 001 | 10.72 | +2.39 | 1892 | 13.1s | 0.275 |
+| 002 | 8.33 | -2.39 | 170 | 11.6s | 0.352 |
 
 ## Physics knobs (drift toward what works)
 
