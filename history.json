@@ -21,9 +21,9 @@
     "media_reel_avg_watch_time": 13112,
     "media_reel_skip_rate": 0.276
    },
-   "metrics_at": "2026-11-16T17:42:06+00:00",
+   "metrics_at": "2026-11-17T01:41:54+00:00",
    "score": 10.715,
-   "lift": 2.4244
+   "lift": 2.1646
   },
   {
    "n": 2,
@@ -46,9 +46,9 @@
     "media_reel_avg_watch_time": 11441,
     "media_reel_skip_rate": 0.366
    },
-   "metrics_at": "2026-11-16T17:42:06+00:00",
+   "metrics_at": "2026-11-17T01:41:54+00:00",
    "score": 8.2906,
-   "lift": -0.5196
+   "lift": -1.264
   },
   {
    "n": 3,
@@ -89,9 +89,9 @@
     "media_reel_avg_watch_time": 8535,
     "media_reel_skip_rate": 0.4
    },
-   "metrics_at": "2026-11-16T17:42:06+00:00",
+   "metrics_at": "2026-11-17T01:41:54+00:00",
    "score": 7.3016,
-   "lift": -1.5086
+   "lift": -2.253
   },
   {
    "n": 4,
@@ -132,9 +132,9 @@
     "media_reel_avg_watch_time": 12041,
     "media_reel_skip_rate": 0.331
    },
-   "metrics_at": "2026-11-16T17:42:06+00:00",
+   "metrics_at": "2026-11-17T01:41:54+00:00",
    "score": 8.2632,
-   "lift": -0.547
+   "lift": -1.2914
   },
   {
    "n": 5,
@@ -175,9 +175,9 @@
     "media_reel_avg_watch_time": 11213,
     "media_reel_skip_rate": 0.304
    },
-   "metrics_at": "2026-11-16T17:42:06+00:00",
+   "metrics_at": "2026-11-17T01:41:54+00:00",
    "score": 8.8102,
-   "lift": 0.5196
+   "lift": -0.4847
   },
   {
    "n": 6,
@@ -218,9 +218,9 @@
     "media_reel_avg_watch_time": 53187,
     "media_reel_skip_rate": 0.327
    },
-   "metrics_at": "2026-11-16T17:42:06+00:00",
+   "metrics_at": "2026-11-17T01:41:54+00:00",
    "score": 10.7026,
-   "lift": 2.412
+   "lift": 2.1522
   },
   {
    "n": 7,
@@ -250,7 +250,49 @@
    },
    "file": "videos/007-crusher-seed46-rot6.mp4",
    "media_id": "18123620246063285",
-   "posted_at": "2026-11-16T17:45:05+00:00"
+   "posted_at": "2026-11-16T17:44:56+0000",
+   "metrics": {
+    "media_views": 1647,
+    "media_reach": 1269,
+    "media_like_count": 17,
+    "media_comments_count": 0,
+    "media_shares": 0,
+    "media_saved": 1,
+    "media_reel_avg_watch_time": 11930,
+    "media_reel_skip_rate": 0.31
+   },
+   "metrics_at": "2026-11-17T01:41:54+00:00",
+   "score": 10.2991,
+   "lift": 1.7487
+  },
+  {
+   "n": 8,
+   "seed": 48,
+   "rot": 7,
+   "recipe": {
+    "arena": "diamond",
+    "spin": 1,
+    "angle": 0,
+    "palette": "fire",
+    "bg": "navy",
+    "fx": "glow",
+    "ball": "shine",
+    "ball_r": 9.0,
+    "mult": 6,
+    "shake": 0,
+    "counter": 1,
+    "sound": "classic",
+    "field": "gravity",
+    "pegs": "none",
+    "bounce": "bouncy",
+    "hook": 5,
+    "ask": 4,
+    "force": 1.4,
+    "pull": 2.15,
+    "assist": 1.67
+   },
+   "file": "videos/008-crusher-seed48-rot7.mp4",
+   "media_id": null
   }
  ]
 }
