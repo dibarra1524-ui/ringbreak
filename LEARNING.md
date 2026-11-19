@@ -1,6 +1,6 @@
 # What the Ringbreak formula has learned
 
-Posts in history: 11. Posts with usable numbers: 11. Random-try rate right now: 36%.
+Posts in history: 12. Posts with usable numbers: 12. Random-try rate right now: 35%.
 
 Lift = how far a post scored above or below its neighbours. Positive is good.
 
@@ -8,181 +8,190 @@ Lift = how far a post scored above or below its neighbours. Positive is good.
 
 | option | evidence | lift |
 |---|---|---|
-| square | 1.7 | +0.68 |
-| circle | 2.6 | +0.50 |
+| circle | 2.9 | +0.44 |
+| square | 2.4 | +0.43 |
 | oct | 0.0 | +0.00 |
-| squircle | 1.4 | -0.04 |
-| pent | 0.9 | -0.65 |
-| diamond | 0.9 | -0.67 |
-| hex | 0.9 | -1.10 |
+| squircle | 1.7 | -0.08 |
+| pent | 0.9 | -0.86 |
+| diamond | 0.9 | -0.89 |
+| hex | 0.9 | -1.30 |
 
 ## spin
 
 | option | evidence | lift |
 |---|---|---|
-| -1 | 1.6 | +0.70 |
-| 0 | 4.1 | +0.25 |
-| 1 | 2.7 | -1.11 |
+| -1 | 2.2 | +0.46 |
+| 0 | 4.7 | +0.17 |
+| 1 | 2.7 | -1.43 |
 
 ## angle
 
 | option | evidence | lift |
 |---|---|---|
-| 90 | 1.4 | +0.77 |
-| 0 | 5.1 | +0.07 |
-| 45 | 1.1 | -0.62 |
-| -45 | 0.9 | -1.10 |
+| 90 | 1.7 | +0.71 |
+| 0 | 5.3 | -0.12 |
+| 45 | 1.4 | -0.87 |
+| -45 | 1.2 | -0.88 |
 
 ## palette
 
 | option | evidence | lift |
 |---|---|---|
-| candy | 0.6 | +0.43 |
-| neon | 3.5 | +0.16 |
-| fire | 1.9 | +0.08 |
-| ice | 0.2 | -0.04 |
-| pastel | 1.4 | -0.24 |
-| mono | 0.9 | -1.10 |
+| candy | 0.9 | +0.45 |
+| neon | 3.8 | +0.04 |
+| fire | 1.8 | -0.13 |
+| pastel | 1.7 | -0.26 |
+| ice | 0.5 | -0.30 |
+| mono | 0.9 | -1.30 |
 
 ## bg
 
 | option | evidence | lift |
 |---|---|---|
-| forest | 3.4 | +0.32 |
-| black | 1.7 | +0.10 |
-| navy | 2.3 | -0.42 |
-| plum | 1.1 | -0.62 |
+| forest | 4.0 | +0.26 |
+| nebula | 0.0 | +0.00 |
+| ringplanet | 0.0 | +0.00 |
+| hyperspace | 0.0 | +0.00 |
+| twinsuns | 0.0 | +0.00 |
+| hangar | 0.0 | +0.00 |
+| ballpark | 0.0 | +0.00 |
+| synthwave | 0.0 | +0.00 |
+| neoncity | 0.0 | +0.00 |
+| black | 1.7 | -0.05 |
+| navy | 2.6 | -0.53 |
+| plum | 1.4 | -0.87 |
 
 ## fx
 
 | option | evidence | lift |
 |---|---|---|
-| glow | 3.9 | +0.57 |
-| none | 1.7 | +0.10 |
-| trail+glow | 2.0 | -0.69 |
-| trail | 0.9 | -1.10 |
+| glow | 4.8 | +0.50 |
+| none | 1.7 | -0.05 |
+| trail+glow | 2.2 | -0.99 |
+| trail | 0.9 | -1.30 |
 
 ## ball
 
 | option | evidence | lift |
 |---|---|---|
-| shine | 4.1 | +0.54 |
-| solid | 2.6 | -0.14 |
-| hollow | 1.8 | -1.19 |
+| shine | 5.3 | +0.39 |
+| solid | 2.6 | -0.36 |
+| hollow | 1.7 | -1.47 |
 
 ## ball_r
 
 | option | evidence | lift |
 |---|---|---|
-| 10.5 | 2.3 | +0.30 |
-| 9.0 | 5.3 | +0.01 |
-| 7.5 | 0.9 | -1.10 |
+| 10.5 | 2.9 | +0.29 |
+| 9.0 | 5.8 | -0.23 |
+| 7.5 | 0.9 | -1.30 |
 
 ## mult
 
 | option | evidence | lift |
 |---|---|---|
-| 10 | 2.3 | +1.02 |
-| 8 | 2.6 | -0.27 |
-| 6 | 3.5 | -0.76 |
+| 10 | 3.0 | +0.95 |
+| 8 | 2.5 | -0.49 |
+| 6 | 4.1 | -0.95 |
 
 ## shake
 
 | option | evidence | lift |
 |---|---|---|
-| 0 | 6.1 | +0.22 |
-| 1 | 2.4 | -0.76 |
+| 0 | 6.9 | +0.04 |
+| 1 | 2.7 | -0.86 |
 
 ## counter
 
 | option | evidence | lift |
 |---|---|---|
-| 0 | 5.1 | +0.47 |
-| 1 | 3.3 | -0.89 |
+| 0 | 5.7 | +0.23 |
+| 1 | 3.9 | -0.89 |
 
 ## sound
 
 | option | evidence | lift |
 |---|---|---|
-| classic | 6.0 | +0.05 |
-| penta | 2.4 | -0.40 |
+| classic | 6.6 | -0.07 |
+| penta | 3.1 | -0.56 |
 
 ## field
 
 | option | evidence | lift |
 |---|---|---|
-| pulse | 2.8 | +0.53 |
-| pull | 1.7 | +0.10 |
-| gravity | 1.6 | -0.23 |
-| vortex | 1.5 | -0.57 |
-| tumble | 0.9 | -0.65 |
+| pulse | 3.0 | +0.42 |
+| pull | 1.7 | -0.05 |
+| gravity | 1.9 | -0.29 |
+| vortex | 2.2 | -0.62 |
+| tumble | 0.9 | -0.86 |
 
 ## pegs
 
 | option | evidence | lift |
 |---|---|---|
-| none | 3.6 | +0.03 |
-| field | 2.2 | +0.03 |
-| arc | 2.7 | -0.34 |
+| field | 3.1 | -0.06 |
+| none | 3.8 | -0.07 |
+| arc | 2.6 | -0.61 |
 
 ## bounce
 
 | option | evidence | lift |
 |---|---|---|
-| normal | 3.9 | +0.64 |
-| bouncy | 3.7 | -0.63 |
-| soft | 0.9 | -0.65 |
+| normal | 5.1 | +0.50 |
+| soft | 0.9 | -0.86 |
+| bouncy | 3.6 | -0.93 |
 
 ## hook
 
 | option | evidence | lift |
 |---|---|---|
-| One ball in. Thousands out. | 0.8 | +0.78 |
-| How many can the ring hold? | 1.1 | +0.72 |
-| It starts with one. | 0.9 | +0.62 |
-| Count the crushes. | 0.5 | +0.44 |
-| It only gets bigger. | 0.6 | +0.43 |
+| One ball in. Thousands out. | 0.8 | +0.77 |
+| It starts with one. | 0.9 | +0.53 |
+| Count the crushes. | 0.8 | +0.51 |
+| It only gets bigger. | 0.9 | +0.45 |
+| How many can the ring hold? | 1.4 | +0.38 |
 | The last crush is the big one. | 0.0 | +0.00 |
 | 1. {m}. {mm}. Then chaos. | 0.0 | +0.00 |
 | Which color wave is your favorite? | 0.0 | +0.00 |
 | Guess how many balls before it breaks. | 0.0 | +0.00 |
-| The ring never survives. | 0.9 | -0.40 |
-| Wait for the ring to break. | 0.9 | -0.64 |
-| Every crush makes {m} more. | 0.9 | -0.65 |
-| Watch it until the end. | 0.9 | -0.67 |
-| Loop it. You won't find the cut. | 0.9 | -1.10 |
+| Wait for the ring to break. | 1.2 | -0.49 |
+| The ring never survives. | 0.9 | -0.61 |
+| Every crush makes {m} more. | 0.9 | -0.86 |
+| Watch it until the end. | 0.9 | -0.89 |
+| Loop it. You won't find the cut. | 0.9 | -1.30 |
 
 ## ask
 
 | option | evidence | lift |
 |---|---|---|
-| Send this to someone who can't stop watching these. | 1.4 | +0.92 |
-| Which color wave was the biggest? Tell me below. | 2.4 | +0.21 |
-| Did you spot where the loop restarts? | 0.2 | -0.04 |
-| How many balls do you think made it out? | 2.6 | -0.38 |
-| Guess the final count before you rewatch. | 1.8 | -0.90 |
+| Send this to someone who can't stop watching these. | 1.7 | +0.84 |
+| Which color wave was the biggest? Tell me below. | 2.7 | +0.09 |
+| Did you spot where the loop restarts? | 0.5 | -0.30 |
+| How many balls do you think made it out? | 2.6 | -0.60 |
+| Guess the final count before you rewatch. | 2.1 | -0.91 |
 
 ## Posts
 
 | video | score | lift | views | avg watch | skip |
 |---|---|---|---|---|---|
 | 001 | 10.72 | +1.71 | 1894 | 13.1s | 0.276 |
-| 002 | 8.27 | -1.38 | 172 | 11.4s | 0.371 |
-| 003 | 7.29 | -2.36 | 163 | 8.5s | 0.404 |
-| 004 | 8.27 | -1.39 | 215 | 12.0s | 0.329 |
-| 005 | 8.82 | -0.84 | 430 | 11.2s | 0.303 |
-| 006 | 10.70 | +1.69 | 213 | 52.6s | 0.335 |
-| 007 | 10.30 | +1.29 | 1658 | 11.9s | 0.312 |
-| 008 | 8.27 | -1.38 | 261 | 12.3s | 0.263 |
-| 009 | 10.11 | +1.10 | 1906 | 10.7s | 0.329 |
-| 010 | 10.34 | +1.33 | 1808 | 12.8s | 0.28 |
-| 011 | 9.20 | -0.27 | 721 | 10.6s | 0.324 |
+| 002 | 8.27 | -1.84 | 172 | 11.4s | 0.371 |
+| 003 | 7.29 | -2.82 | 163 | 8.5s | 0.404 |
+| 004 | 8.27 | -1.84 | 215 | 12.0s | 0.329 |
+| 005 | 8.82 | -1.29 | 430 | 11.2s | 0.303 |
+| 006 | 10.70 | +1.50 | 213 | 52.6s | 0.335 |
+| 007 | 10.30 | +1.10 | 1658 | 11.9s | 0.312 |
+| 008 | 8.27 | -1.84 | 261 | 12.3s | 0.263 |
+| 009 | 10.11 | +0.92 | 1906 | 10.7s | 0.329 |
+| 010 | 10.34 | +1.15 | 1808 | 12.8s | 0.28 |
+| 011 | 9.20 | -0.92 | 724 | 10.5s | 0.326 |
+| 012 | 10.46 | +1.45 | 1728 | 13.4s | 0.251 |
 
 ## Physics knobs (drift toward what works)
 
-- force: centre 1.02, spread 0.23
-- pull: centre 2.20, spread 0.30
-- assist: centre 1.48, spread 0.23
+- force: centre 0.98, spread 0.20
+- pull: centre 2.28, spread 0.27
+- assist: centre 1.51, spread 0.20
 
 ## Retired options
 
