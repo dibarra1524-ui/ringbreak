@@ -14,6 +14,7 @@ brand-new options extra airtime (novelty bonus) and retires options that keep sc
 - [x] Pegs: bumpers that light up in the ball's colour and tick when hit (arc and field layouts)
 - [x] Bounce: bouncy and soft balls
 - [x] Suck-in before each slam (keeps every physics type building to a big finale)
+- [x] Themed animated backgrounds with a matching machine style (scenes.py, 8 scenes in the `bg` trait)
 
 ## Next up
 

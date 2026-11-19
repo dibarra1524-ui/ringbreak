@@ -47,7 +47,8 @@ TRAITS = {
     'spin':    [0, 1, -1],
     'angle':   [0, 90, 45, -45],
     'palette': ['neon', 'pastel', 'fire', 'ice', 'candy', 'mono'],
-    'bg':      ['black', 'navy', 'plum', 'forest'],
+    'bg':      ['black', 'navy', 'plum', 'forest',          # flat colours
+                'nebula', 'ringplanet', 'hyperspace', 'twinsuns', 'hangar', 'ballpark', 'synthwave', 'neoncity'],  # scenes.py
     'fx':      ['none', 'trail', 'glow', 'trail+glow'],
     'ball':    ['solid', 'hollow', 'shine'],
     'ball_r':  [7.5, 9.0, 10.5],
@@ -232,6 +233,8 @@ def choose(h=None, rng=None):
             continue
         if recent and attempt < 500 and (r['arena'] == recent[-1].get('arena') or r['palette'] == recent[-1].get('palette')):
             continue
+        if attempt < 500 and r['bg'] in [q.get('bg') for q in recent[-3:]]:
+            continue                           # keep the scenes rotating: no background twice within 4 posts
         if attempt < 500 and (r['hook'] in [q.get('hook') for q in recent[-4:]] or (recent and r['ask'] == recent[-1].get('ask'))):
             continue
         break
@@ -247,11 +250,17 @@ def caption_for(r):
 
 def look(r):
     """Plain-words description of what the frame should show, for the visual check before posting."""
-    bits = ['a white %s outline%s on a %s background' % (
-        NAMES['arena'][r['arena']], ' (slowly turning)' if r['spin'] else '',
-        {'black': 'black', 'navy': 'very dark blue', 'plum': 'very dark purple', 'forest': 'very dark green'}[r['bg']])]
+    import scenes
+    sc = scenes.STYLES.get(r['bg'])
+    if sc:
+        bits = ['a %s %s outline%s over a themed animated scene: %s (dimmed inside the outline)' % (
+            sc['ring_desc'], NAMES['arena'][r['arena']], ' (slowly turning)' if r['spin'] else '', sc['desc'])]
+    else:
+        bits = ['a white %s outline%s on a %s background' % (
+            NAMES['arena'][r['arena']], ' (slowly turning)' if r['spin'] else '',
+            {'black': 'black', 'navy': 'very dark blue', 'plum': 'very dark purple', 'forest': 'very dark green'}[r['bg']])]
     bits.append('%s %s-palette balls' % ({'solid': 'solid', 'hollow': 'hollow ring-shaped', 'shine': 'shiny'}[r['ball']], r['palette']))
-    bits.append('two grey jaws ' + {0: 'on a horizontal rail', 90: 'on a vertical rail', 45: 'on a diagonal rail',
+    bits.append(('two metal jaws ' if sc else 'two grey jaws ') + {0: 'on a horizontal rail', 90: 'on a vertical rail', 45: 'on a diagonal rail',
                                     -45: 'on a diagonal rail'}[int(r['angle'])])
     if 'trail' in r['fx']:
         bits.append('short motion trails behind the balls')

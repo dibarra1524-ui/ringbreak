@@ -7,6 +7,7 @@ Usage:  python3 crusher.py            full render -> crusher.mp4
 """
 import os, math, json, subprocess, wave
 import numpy as np, cv2, pymunk
+import scenes
 
 
 def hx(h):
@@ -59,7 +60,17 @@ PALETTES = {   # 9 wave colors each, the last one is the finale blast
 }
 BGS = {'black': '000000', 'navy': '070B1F', 'plum': '160821', 'forest': '05130D'}
 WAVES = [hx(c) for c in PALETTES[RECIPE.get('palette', 'neon')]]
-BG = hx(BGS[RECIPE.get('bg', 'black')])
+BGNAME = RECIPE.get('bg', 'black')
+THEME = scenes.STYLES.get(BGNAME)            # a themed, animated scene (see scenes.py) instead of a flat colour
+BG = hx(BGS.get(BGNAME, '000000'))
+RING_COL, RING_GLOW, RIM, WINDOW, COUNTER_COL = WHITE, None, 'plain', 1.0, 'FFFFFF'
+if THEME:   # restyle the machine to match the scene
+    STEEL, EDGE, HI, BOLT = (hx(c) for c in THEME['jaw'])
+    PAD, RING_COL = hx(THEME['pad']), hx(THEME['ring'])
+    RING_GLOW = hx(THEME['glow']) if THEME['glow'] else None
+    RIM, WINDOW, COUNTER_COL = THEME['rim'], THEME['window'], THEME['counter']
+SCENE = None
+STITCH, RIM_DARK, RIM_MID, RIM_HI = hx('D22B2B'), hx('262C36'), hx('4A5466'), hx('9AA6B8')
 ARENA = RECIPE.get('arena', 'circle')        # outline of the ring
 SPIN = int(RECIPE.get('spin', 0)) if ARENA != 'circle' else 0   # symmetry steps the outline turns per loop
 ANGLE = float(RECIPE.get('angle', 0))        # the whole machine is drawn turned by this many degrees
@@ -460,14 +471,33 @@ def draw_counter(img, n):
     dw, dh, th, sp = 46, 84, 10, 18
     x = W / 2 - (len(txt) * dw + (len(txt) - 1) * sp) / 2
     y, m = 292.0, dh / 2
+    col = (240, 240, 240)
+    if THEME and COUNTER_COL == 'scoreboard':   # right-aligned in four fixed slots
+        txt = txt.rjust(4)
+        x = W / 2 - (4 * dw + 3 * sp) / 2
+    if THEME:   # a dark plate keeps the digits readable over the scene
+        x0, x1 = int(W / 2 - 4 * (dw + sp) / 2 - 34), int(W / 2 + 4 * (dw + sp) / 2 + 34)
+        board = COUNTER_COL == 'scoreboard'
+        reg = img[int(y) - 26:int(y + dh) + 26, x0:x1]
+        cv2.addWeighted(reg, 0.35 if not board else 0.12, np.zeros_like(reg), 0, 0, dst=reg)
+        if board:
+            cv2.rectangle(img, (x0, int(y) - 26), (x1, int(y + dh) + 26), hx('3B4466'), 4, cv2.LINE_AA)
+            for k in range(4):     # unlit segments, like a real scoreboard
+                xx = W / 2 - (4 * dw + 3 * sp) / 2 + k * (dw + sp)
+                for (a0, b0, a1, b1) in ((xx + 4, y, xx + dw - 4, y + th), (xx + 4, y + m - th / 2, xx + dw - 4, y + m + th / 2),
+                                         (xx + 4, y + dh - th, xx + dw - 4, y + dh), (xx, y + 4, xx + th, y + m - 3),
+                                         (xx + dw - th, y + 4, xx + dw, y + m - 3), (xx, y + m + 3, xx + th, y + dh - 4),
+                                         (xx + dw - th, y + m + 3, xx + dw, y + dh - 4)):
+                    cv2.rectangle(img, (int(a0), int(b0)), (int(a1), int(b1)), (18, 26, 40), -1)
+        col = hx('FFB000') if board else hx(COUNTER_COL)
     for ch in txt:
         rects = {'a': (x + 4, y, x + dw - 4, y + th), 'g': (x + 4, y + m - th / 2, x + dw - 4, y + m + th / 2),
                  'd': (x + 4, y + dh - th, x + dw - 4, y + dh), 'f': (x, y + 4, x + th, y + m - 3),
                  'b': (x + dw - th, y + 4, x + dw, y + m - 3), 'e': (x, y + m + 3, x + th, y + dh - 4),
                  'c': (x + dw - th, y + m + 3, x + dw, y + dh - 4)}
         for k, (x0, y0, x1, y1) in rects.items():
-            if k in SEGS[ch]:
-                cv2.rectangle(img, (int(x0), int(y0)), (int(x1), int(y1)), (240, 240, 240), -1, cv2.LINE_AA)
+            if k in SEGS.get(ch, ''):
+                cv2.rectangle(img, (int(x0), int(y0)), (int(x1), int(y1)), col, -1, cv2.LINE_AA)
         x += dw + sp
 
 
@@ -523,10 +553,64 @@ def draw_jaw(img, face, sgn):
         circ(img, face + sgn * u, CY + hp - 12, 3.2, BOLT)
 
 
+def _out(P, d):
+    """Push screen points d pixels away from the machine centre."""
+    c = np.array(T1(CX, CY))
+    v = P - c
+    return P + v / np.maximum(np.linalg.norm(v, axis=1, keepdims=True), 1e-6) * d
+
+
+def draw_ring_themed(img, pts, fa):
+    P = TX(pts)
+    Q = np.round(P * 16).astype(np.int32)
+    full = len(pts) == NA          # a free outline (not the final capsule)
+    if fa > 0:
+        if fa >= 1:
+            cv2.fillPoly(img, [Q], RING_COL, cv2.LINE_AA, 4)
+        else:
+            ov = img.copy()
+            cv2.fillPoly(ov, [Q], RING_COL, cv2.LINE_AA, 4)
+            cv2.addWeighted(ov, fa, img, 1 - fa, 0, img)
+    if RING_GLOW is not None:
+        sm = np.zeros((H // 4, W // 4, 3), np.uint8)
+        cv2.polylines(sm, [np.round(P / 4 * 16).astype(np.int32)], True, RING_GLOW, 4, cv2.LINE_AA, 4)
+        sm = cv2.GaussianBlur(sm, (0, 0), 3.5)
+        cv2.add(img, cv2.convertScaleAbs(cv2.resize(sm, (W, H), interpolation=cv2.INTER_LINEAR), alpha=1.8), dst=img)
+    if RIM == 'porthole' and full:
+        def pl(d, col, th):
+            cv2.polylines(img, [np.round(_out(P, d) * 16).astype(np.int32)], True, col, th, cv2.LINE_AA, 4)
+        pl(18, RIM_DARK, 30)
+        pl(16, RIM_MID, 20)
+        pl(9, RIM_HI, 2)
+        pl(32, RIM_DARK, 3)
+        B = _out(P, 18)[::20]
+        for x, y in B:
+            cv2.circle(img, (int(x * 16), int(y * 16)), 5 * 16, RIM_DARK, -1, cv2.LINE_AA, 4)
+            cv2.circle(img, (int((x - 1.2) * 16), int((y - 1.2) * 16)), 3 * 16, RIM_HI, -1, cv2.LINE_AA, 4)
+    cv2.polylines(img, [Q], True, RING_COL, RING_W + (2 if THEME else 0), cv2.LINE_AA, 4)
+    if RIM == 'stitch' and full:
+        c = np.array(T1(CX, CY))
+        for i in range(0, NA, 9):
+            p = P[i]
+            n = (p - c) / max(1e-6, np.linalg.norm(p - c))
+            tg = np.array([-n[1], n[0]])
+            for side in (-1, 1):
+                a = p + n * side * 5 + tg * 4
+                b = p + n * side * 15 - tg * 4
+                cv2.line(img, (int(a[0] * 16), int(a[1] * 16)), (int(b[0] * 16), int(b[1] * 16)), STITCH, 3, cv2.LINE_AA, 4)
+
+
 def draw(sim, t, f):
-    img = np.full((H, W, 3), BG, np.uint8)
     g = gap(t)
     sh = ring_pts(t)
+    if SCENE is not None:
+        img = SCENE.frame(t)
+        if sh and WINDOW < 1:          # dim the scene inside the ring so the balls stay the star
+            m = np.zeros((H, W), np.uint8)
+            cv2.fillPoly(m, [np.round(TX(sh[0]) * 16).astype(np.int32)], 255, cv2.LINE_8, 4)
+            cv2.copyTo(cv2.convertScaleAbs(img, alpha=WINDOW), m, img)
+    else:
+        img = np.full((H, W, 3), BG, np.uint8)
     collapsing = SHRINK[0] <= t < FINALE
     SHK[0] = SHK[1] = 0.0
     if SHAKE:
@@ -539,6 +623,9 @@ def draw(sim, t, f):
         if not sh:
             return
         pts, fa = sh
+        if THEME:
+            draw_ring_themed(img, pts, fa)
+            return
         if fa > 0:
             if fa >= 1:
                 fill(img, pts, WHITE)
@@ -660,17 +747,26 @@ def make_audio(sim, path):
 
 # ----------------------------------------------------------------- MAIN
 def main():
+    global SCENE
     sim = Sim()
+    if THEME and not DRY:
+        SCENE = scenes.Scene(BGNAME, SEED)
+    stills = [float(x) for x in os.environ.get('STILLS', '').split(',') if x]   # STILLS=5,15 -> PNGs only, no video
     nframes = int(DUR * FPS)
     pipe = None
-    if not DRY:
+    if not DRY and not stills:
         pipe = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'bgr24',
                                  '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-', '-c:v', 'libx264', '-crf', os.environ.get('CRF', '17'),
                                  '-pix_fmt', 'yuv420p', '-preset', 'veryfast', '_video.mp4'], stdin=subprocess.PIPE)
     for f in range(nframes):
         t = f / FPS
         sim.begin_frame(t, f)
-        if pipe:
+        if stills:
+            if any(abs(t - s) < 0.5 / FPS for s in stills):
+                cv2.imwrite('%s_%04.1f.png' % (OUT.rsplit('.', 1)[0], t), draw(sim, t, f))
+            if t > max(stills):
+                break
+        elif pipe:
             pipe.stdin.write(draw(sim, t, f).tobytes())
         sim.advance(t)
         if DRY and (sim.early_cap or (sim.np == 4 and sim.spawn_events[-1][1] > 40 * MULT)):
