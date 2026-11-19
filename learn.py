@@ -47,9 +47,9 @@ TRAITS = {
     'spin':    [0, 1, -1],
     'angle':   [0, 90, 45, -45],
     'palette': ['neon', 'pastel', 'fire', 'ice', 'candy', 'mono'],
-    'bg':      ['black', 'navy', 'plum', 'forest',          # flat colours
+    'bg':      [                                         # themed scenes only (flat colours retired: looked boring)
                 'nebula', 'ringplanet', 'hyperspace', 'twinsuns', 'hangar', 'ballpark', 'synthwave', 'neoncity'],  # scenes.py
-    'fx':      ['none', 'trail', 'glow', 'trail+glow'],
+    'fx':      ['trail', 'glow', 'trail+glow'],   # 'none' retired: looked flat
     'ball':    ['solid', 'hollow', 'shine'],
     'ball_r':  [7.5, 9.0, 10.5],
     'mult':    [6, 8, 10],
