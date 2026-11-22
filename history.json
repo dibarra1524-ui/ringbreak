@@ -21,7 +21,7 @@
     "media_reel_avg_watch_time": 13098,
     "media_reel_skip_rate": 0.276
    },
-   "metrics_at": "2026-11-21T17:42:31+00:00",
+   "metrics_at": "2026-11-22T01:42:21+00:00",
    "score": 10.7168,
    "lift": 1.7134
   },
@@ -46,7 +46,7 @@
     "media_reel_avg_watch_time": 11224,
     "media_reel_skip_rate": 0.373
    },
-   "metrics_at": "2026-11-21T17:42:31+00:00",
+   "metrics_at": "2026-11-22T01:42:21+00:00",
    "score": 8.2612,
    "lift": -1.8499
   },
@@ -89,7 +89,7 @@
     "media_reel_avg_watch_time": 8283,
     "media_reel_skip_rate": 0.417
    },
-   "metrics_at": "2026-11-21T17:42:31+00:00",
+   "metrics_at": "2026-11-22T01:42:21+00:00",
    "score": 7.273,
    "lift": -2.929
   },
@@ -132,7 +132,7 @@
     "media_reel_avg_watch_time": 11756,
     "media_reel_skip_rate": 0.341
    },
-   "metrics_at": "2026-11-21T17:42:31+00:00",
+   "metrics_at": "2026-11-22T01:42:21+00:00",
    "score": 8.2416,
    "lift": -2.0025
   },
@@ -175,7 +175,7 @@
     "media_reel_avg_watch_time": 11191,
     "media_reel_skip_rate": 0.309
    },
-   "metrics_at": "2026-11-21T17:42:31+00:00",
+   "metrics_at": "2026-11-22T01:42:21+00:00",
    "score": 8.8122,
    "lift": -1.4563
   },
@@ -218,7 +218,7 @@
     "media_reel_avg_watch_time": 51585,
     "media_reel_skip_rate": 0.341
    },
-   "metrics_at": "2026-11-21T17:42:31+00:00",
+   "metrics_at": "2026-11-22T01:42:21+00:00",
    "score": 10.7207,
    "lift": 0.4766
   },
@@ -261,9 +261,9 @@
     "media_reel_avg_watch_time": 11862,
     "media_reel_skip_rate": 0.313
    },
-   "metrics_at": "2026-11-21T17:42:31+00:00",
+   "metrics_at": "2026-11-22T01:42:21+00:00",
    "score": 10.2929,
-   "lift": 0.0488
+   "lift": 0.1153
   },
   {
    "n": 8,
@@ -304,9 +304,9 @@
     "media_reel_avg_watch_time": 12060,
     "media_reel_skip_rate": 0.273
    },
-   "metrics_at": "2026-11-21T17:42:31+00:00",
+   "metrics_at": "2026-11-22T01:42:21+00:00",
    "score": 8.251,
-   "lift": -2.0419
+   "lift": -2.0175
   },
   {
    "n": 9,
@@ -347,9 +347,9 @@
     "media_reel_avg_watch_time": 10697,
     "media_reel_skip_rate": 0.329
    },
-   "metrics_at": "2026-11-21T17:42:31+00:00",
+   "metrics_at": "2026-11-22T01:42:21+00:00",
    "score": 10.1111,
-   "lift": -0.1818
+   "lift": -0.1574
   },
   {
    "n": 10,
@@ -390,9 +390,9 @@
     "media_reel_avg_watch_time": 12741,
     "media_reel_skip_rate": 0.281
    },
-   "metrics_at": "2026-11-21T17:42:31+00:00",
+   "metrics_at": "2026-11-22T01:42:21+00:00",
    "score": 10.3395,
-   "lift": 0.0954
+   "lift": 0.1619
   },
   {
    "n": 11,
@@ -433,9 +433,9 @@
     "media_reel_avg_watch_time": 10517,
     "media_reel_skip_rate": 0.328
    },
-   "metrics_at": "2026-11-21T17:42:31+00:00",
+   "metrics_at": "2026-11-22T01:42:21+00:00",
    "score": 9.1945,
-   "lift": -1.0984
+   "lift": -1.074
   },
   {
    "n": 12,
@@ -476,9 +476,9 @@
     "media_reel_avg_watch_time": 13393,
     "media_reel_skip_rate": 0.252
    },
-   "metrics_at": "2026-11-21T17:42:31+00:00",
+   "metrics_at": "2026-11-22T01:42:21+00:00",
    "score": 10.4556,
-   "lift": 0.278
+   "lift": 0.3445
   },
   {
    "n": 13,
@@ -510,18 +510,18 @@
    "media_id": "18149817187586304",
    "posted_at": "2026-11-19T17:44:51+0000",
    "metrics": {
-    "media_views": 33894,
+    "media_views": 33901,
     "media_reach": 26709,
     "media_like_count": 147,
     "media_comments_count": 0,
     "media_shares": 1,
     "media_saved": 5,
-    "media_reel_avg_watch_time": 11907,
+    "media_reel_avg_watch_time": 11905,
     "media_reel_skip_rate": 0.281
    },
-   "metrics_at": "2026-11-21T17:42:31+00:00",
+   "metrics_at": "2026-11-22T01:42:21+00:00",
    "score": 13.1866,
-   "lift": 2.9425
+   "lift": 3.009
   },
   {
    "n": 14,
@@ -562,9 +562,9 @@
     "media_reel_avg_watch_time": 11472,
     "media_reel_skip_rate": 0.294
    },
-   "metrics_at": "2026-11-21T17:42:31+00:00",
+   "metrics_at": "2026-11-22T01:42:21+00:00",
    "score": 10.2441,
-   "lift": -0.0664
+   "lift": -0.0488
   },
   {
    "n": 15,
@@ -596,18 +596,18 @@
    "media_id": "17891947455478723",
    "posted_at": "2026-11-20T17:44:48+0000",
    "metrics": {
-    "media_views": 13246,
-    "media_reach": 11262,
+    "media_views": 13259,
+    "media_reach": 11278,
     "media_like_count": 69,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 1,
-    "media_reel_avg_watch_time": 9296,
+    "media_reel_avg_watch_time": 9294,
     "media_reel_skip_rate": 0.362
    },
-   "metrics_at": "2026-11-21T17:42:31+00:00",
-   "score": 11.8349,
-   "lift": 1.542
+   "metrics_at": "2026-11-22T01:42:21+00:00",
+   "score": 11.8355,
+   "lift": 1.567
   },
   {
    "n": 16,
@@ -639,18 +639,18 @@
    "media_id": "17957322393292265",
    "posted_at": "2026-11-21T01:44:38+0000",
    "metrics": {
-    "media_views": 2722,
-    "media_reach": 2199,
+    "media_views": 2731,
+    "media_reach": 2204,
     "media_like_count": 9,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 10421,
+    "media_reel_avg_watch_time": 10435,
     "media_reel_skip_rate": 0.353
    },
-   "metrics_at": "2026-11-21T17:42:31+00:00",
-   "score": 10.3282,
-   "lift": 0.012
+   "metrics_at": "2026-11-22T01:42:21+00:00",
+   "score": 10.3327,
+   "lift": 0.0398
   },
   {
    "n": 17,
@@ -680,7 +680,49 @@
    },
    "file": "videos/017-crusher-seed84-rot7.mp4",
    "media_id": "18132168550692163",
-   "posted_at": "2026-11-21T17:44:50+00:00"
+   "posted_at": "2026-11-21T17:44:41+0000",
+   "metrics": {
+    "media_views": 195,
+    "media_reach": 157,
+    "media_like_count": 0,
+    "media_comments_count": 0,
+    "media_shares": 0,
+    "media_saved": 0,
+    "media_reel_avg_watch_time": 9647,
+    "media_reel_skip_rate": 0.411
+   },
+   "metrics_at": "2026-11-22T01:42:21+00:00",
+   "score": 7.4208,
+   "lift": -2.892
+  },
+  {
+   "n": 18,
+   "seed": 87,
+   "rot": 8,
+   "recipe": {
+    "arena": "pent",
+    "spin": 1,
+    "angle": 90,
+    "palette": "pastel",
+    "bg": "ringplanet",
+    "fx": "trail+glow",
+    "ball": "hollow",
+    "ball_r": 10.5,
+    "mult": 10,
+    "shake": 1,
+    "counter": 0,
+    "sound": "classic",
+    "field": "pull",
+    "pegs": "none",
+    "bounce": "normal",
+    "hook": 12,
+    "ask": 2,
+    "force": 0.91,
+    "pull": 2.2,
+    "assist": 1.25
+   },
+   "file": "videos/018-crusher-seed87-rot8.mp4",
+   "media_id": null
   }
  ]
 }
