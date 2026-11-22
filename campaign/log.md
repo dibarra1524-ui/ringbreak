@@ -6,3 +6,6 @@
 - 2026-11-21 | naya-tiktok | seed 77 | hyperspace | hook: When you grow in silence but the camera sees everything | lyric: What do I do / to outgrow you?
 - 2026-11-21 | naya-instagram | seed 78 | twinsuns | hook: POV: you finally outgrow what kept you small | lyric: Good things ignored / Tend to want more
 - 2026-11-21 | iceberg-tiktok | seed 80 | ringplanet | hook: Physics said no | lyric: none
+- 2026-11-22 | naya-tiktok | seed 90 | neoncity | hook: POV: documenting rock bottom because one day it'll be the before | lyric: When I have more / It's less of you
+- 2026-11-22 | naya-instagram | seed 91 | twinsuns | hook: For the version of me that kept going when nobody was watching | lyric: Nobody got me
+- 2026-11-22 | iceberg-tiktok | seed 95 | neoncity | hook: Watch the ring | lyric: none
