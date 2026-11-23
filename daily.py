@@ -63,9 +63,17 @@ def main():
     json.dump(st, open('state.json', 'w'), indent=1)
     hist['posts'].append({'n': n, 'seed': seed, 'rot': rot, 'recipe': recipe, 'file': name, 'media_id': None})
     learn.save(hist)
-    post = {'n': n, 'file': name, 'url': RAW + name, 'caption': learn.caption_for(recipe),
+    cap = learn.caption_for(recipe)
+    # Paid "any video" brand campaign (campaign/brands.json): end card + #ad caption when one is open.
+    import brand
+    camp = brand.active() if not os.environ.get('NO_BRAND') else None
+    if camp:
+        brand.overlay(name, camp)
+        cap = brand.caption(cap, camp)
+    post = {'n': n, 'file': name, 'url': RAW + name, 'caption': cap,
             'seed': seed, 'rot': rot, 'recipe': recipe, 'look': learn.look(recipe),
-            'crushed': crushed, 'finale': finale}
+            'crushed': crushed, 'finale': finale,
+            'campaign': camp['id'] if camp else None}
     json.dump(post, open('post.json', 'w'), indent=1)
     print(json.dumps(post, indent=1))
 
