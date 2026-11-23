@@ -9,3 +9,6 @@
 - 2026-11-22 | naya-tiktok | seed 90 | neoncity | hook: POV: documenting rock bottom because one day it'll be the before | lyric: When I have more / It's less of you
 - 2026-11-22 | naya-instagram | seed 91 | twinsuns | hook: For the version of me that kept going when nobody was watching | lyric: Nobody got me
 - 2026-11-22 | iceberg-tiktok | seed 95 | neoncity | hook: Watch the ring | lyric: none
+- 2026-11-23 | naya-tiktok | seed 99 | nebula | hook: Rock bottom looks different when you know it's only the beginning | lyric: I might hit record
+- 2026-11-23 | naya-instagram | seed 103 | hangar | hook: Nobody saw the beginning of my glow-up | lyric: Nobody but this camera
+- 2026-11-23 | iceberg-tiktok | seed 107 | hangar | hook: Count to 3 | lyric: none
