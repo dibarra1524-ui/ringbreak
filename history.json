@@ -12,18 +12,18 @@
    "media_id": "18439989145179317",
    "posted_at": "2026-11-13T23:23:43+0000",
    "metrics": {
-    "media_views": 1903,
-    "media_reach": 1422,
+    "media_views": 1906,
+    "media_reach": 1424,
     "media_like_count": 21,
     "media_comments_count": 0,
     "media_shares": 2,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 13098,
-    "media_reel_skip_rate": 0.276
+    "media_reel_avg_watch_time": 13097,
+    "media_reel_skip_rate": 0.277
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 10.7168,
-   "lift": 1.7159
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 10.7156,
+   "lift": 1.7187
   },
   {
    "n": 2,
@@ -37,18 +37,18 @@
    "media_id": "18229859881327143",
    "posted_at": "2026-11-14T17:44:00+0000",
    "metrics": {
-    "media_views": 175,
-    "media_reach": 126,
+    "media_views": 178,
+    "media_reach": 127,
     "media_like_count": 2,
     "media_comments_count": 1,
     "media_shares": 0,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 11224,
-    "media_reel_skip_rate": 0.373
+    "media_reel_avg_watch_time": 11148,
+    "media_reel_skip_rate": 0.378
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 8.2612,
-   "lift": -1.8499
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 8.2484,
+   "lift": -1.8625
   },
   {
    "n": 3,
@@ -80,18 +80,18 @@
    "media_id": "18082976939395568",
    "posted_at": "2026-11-14T20:49:41+0000",
    "metrics": {
-    "media_views": 168,
-    "media_reach": 140,
+    "media_views": 170,
+    "media_reach": 141,
     "media_like_count": 1,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 8283,
-    "media_reel_skip_rate": 0.417
+    "media_reel_avg_watch_time": 8243,
+    "media_reel_skip_rate": 0.421
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 7.273,
-   "lift": -2.929
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 7.271,
+   "lift": -2.9296
   },
   {
    "n": 4,
@@ -123,18 +123,18 @@
    "media_id": "17891584845478636",
    "posted_at": "2026-11-15T01:44:19+0000",
    "metrics": {
-    "media_views": 223,
-    "media_reach": 162,
+    "media_views": 224,
+    "media_reach": 164,
     "media_like_count": 3,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 11756,
-    "media_reel_skip_rate": 0.341
+    "media_reel_avg_watch_time": 11687,
+    "media_reel_skip_rate": 0.345
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 8.2416,
-   "lift": -2.0027
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 8.2296,
+   "lift": -2.0131
   },
   {
    "n": 5,
@@ -166,18 +166,18 @@
    "media_id": "17970100110233356",
    "posted_at": "2026-11-15T17:44:52+0000",
    "metrics": {
-    "media_views": 438,
-    "media_reach": 346,
+    "media_views": 439,
+    "media_reach": 347,
     "media_like_count": 4,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 11164,
-    "media_reel_skip_rate": 0.311
+    "media_reel_avg_watch_time": 11132,
+    "media_reel_skip_rate": 0.313
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 8.8072,
-   "lift": -1.4614
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 8.8018,
+   "lift": -1.4647
   },
   {
    "n": 6,
@@ -209,18 +209,18 @@
    "media_id": "18040059542890842",
    "posted_at": "2026-11-16T01:43:47+0000",
    "metrics": {
-    "media_views": 221,
-    "media_reach": 165,
+    "media_views": 225,
+    "media_reach": 166,
     "media_like_count": 0,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 51585,
-    "media_reel_skip_rate": 0.341
+    "media_reel_avg_watch_time": 51295,
+    "media_reel_skip_rate": 0.345
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 10.7207,
-   "lift": 0.4764
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 10.7305,
+   "lift": 0.4878
   },
   {
    "n": 7,
@@ -252,18 +252,18 @@
    "media_id": "18123620246063285",
    "posted_at": "2026-11-16T17:44:56+0000",
    "metrics": {
-    "media_views": 1663,
-    "media_reach": 1290,
+    "media_views": 1664,
+    "media_reach": 1292,
     "media_like_count": 17,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 1,
-    "media_reel_avg_watch_time": 11862,
-    "media_reel_skip_rate": 0.313
+    "media_reel_avg_watch_time": 11853,
+    "media_reel_skip_rate": 0.314
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 10.2929,
-   "lift": 0.1152
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 10.2904,
+   "lift": 0.1136
   },
   {
    "n": 8,
@@ -295,18 +295,18 @@
    "media_id": "18156122923493868",
    "posted_at": "2026-11-17T01:44:05+0000",
    "metrics": {
-    "media_views": 267,
-    "media_reach": 199,
-    "media_like_count": 0,
+    "media_views": 268,
+    "media_reach": 200,
+    "media_like_count": 1,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 12060,
-    "media_reel_skip_rate": 0.273
+    "media_reel_avg_watch_time": 12013,
+    "media_reel_skip_rate": 0.276
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 8.251,
-   "lift": -2.0419
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 8.3373,
+   "lift": -1.9531
   },
   {
    "n": 9,
@@ -338,18 +338,18 @@
    "media_id": "18123275699056773",
    "posted_at": "2026-11-17T17:45:02+0000",
    "metrics": {
-    "media_views": 1910,
-    "media_reach": 1531,
+    "media_views": 1911,
+    "media_reach": 1533,
     "media_like_count": 11,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 10697,
+    "media_reel_avg_watch_time": 10691,
     "media_reel_skip_rate": 0.329
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 10.1111,
-   "lift": -0.1575
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 10.1109,
+   "lift": -0.1556
   },
   {
    "n": 10,
@@ -381,18 +381,18 @@
    "media_id": "18154013038555467",
    "posted_at": "2026-11-18T01:44:41+0000",
    "metrics": {
-    "media_views": 1815,
+    "media_views": 1818,
     "media_reach": 1362,
     "media_like_count": 9,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 12734,
+    "media_reel_avg_watch_time": 12725,
     "media_reel_skip_rate": 0.282
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 10.3378,
-   "lift": 0.1601
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 10.3383,
+   "lift": 0.2274
   },
   {
    "n": 11,
@@ -424,18 +424,18 @@
    "media_id": "18171219097483824",
    "posted_at": "2026-11-18T17:44:07+0000",
    "metrics": {
-    "media_views": 729,
-    "media_reach": 595,
+    "media_views": 730,
+    "media_reach": 596,
     "media_like_count": 6,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 10517,
-    "media_reel_skip_rate": 0.328
+    "media_reel_avg_watch_time": 10501,
+    "media_reel_skip_rate": 0.329
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 9.1945,
-   "lift": -1.0741
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 9.192,
+   "lift": -1.0507
   },
   {
    "n": 12,
@@ -467,18 +467,18 @@
    "media_id": "18000531252031803",
    "posted_at": "2026-11-19T01:45:22+0000",
    "metrics": {
-    "media_views": 1740,
+    "media_views": 1741,
     "media_reach": 1299,
     "media_like_count": 7,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 1,
-    "media_reel_avg_watch_time": 13393,
-    "media_reel_skip_rate": 0.252
+    "media_reel_avg_watch_time": 13383,
+    "media_reel_skip_rate": 0.253
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 10.4556,
-   "lift": 0.3445
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 10.453,
+   "lift": 0.4194
   },
   {
    "n": 13,
@@ -510,18 +510,18 @@
    "media_id": "18149817187586304",
    "posted_at": "2026-11-19T17:44:51+0000",
    "metrics": {
-    "media_views": 33905,
+    "media_views": 33910,
     "media_reach": 26709,
     "media_like_count": 147,
     "media_comments_count": 0,
     "media_shares": 1,
     "media_saved": 5,
-    "media_reel_avg_watch_time": 11903,
+    "media_reel_avg_watch_time": 11902,
     "media_reel_skip_rate": 0.281
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
+   "metrics_at": "2026-11-24T02:42:59+00:00",
    "score": 13.1865,
-   "lift": 3.0088
+   "lift": 3.0756
   },
   {
    "n": 14,
@@ -553,18 +553,18 @@
    "media_id": "18124617473058450",
    "posted_at": "2026-11-20T01:44:07+0000",
    "metrics": {
-    "media_views": 1909,
+    "media_views": 1911,
     "media_reach": 1503,
     "media_like_count": 10,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 11465,
-    "media_reel_skip_rate": 0.294
+    "media_reel_avg_watch_time": 11460,
+    "media_reel_skip_rate": 0.295
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 10.2443,
-   "lift": -0.0486
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 10.2427,
+   "lift": 0.042
   },
   {
    "n": 15,
@@ -597,17 +597,17 @@
    "posted_at": "2026-11-20T17:44:48+0000",
    "metrics": {
     "media_views": 13262,
-    "media_reach": 11282,
+    "media_reach": 11283,
     "media_like_count": 69,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 1,
-    "media_reel_avg_watch_time": 9293,
+    "media_reel_avg_watch_time": 9292,
     "media_reel_skip_rate": 0.362
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 11.8356,
-   "lift": 1.567
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 11.8355,
+   "lift": 1.5928
   },
   {
    "n": 16,
@@ -639,18 +639,18 @@
    "media_id": "17957322393292265",
    "posted_at": "2026-11-21T01:44:38+0000",
    "metrics": {
-    "media_views": 2734,
+    "media_views": 2739,
     "media_reach": 2207,
     "media_like_count": 9,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 10431,
+    "media_reel_avg_watch_time": 10428,
     "media_reel_skip_rate": 0.353
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 10.3333,
-   "lift": 0.0404
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 10.3347,
+   "lift": 0.0682
   },
   {
    "n": 17,
@@ -682,18 +682,18 @@
    "media_id": "18132168550692163",
    "posted_at": "2026-11-21T17:44:41+0000",
    "metrics": {
-    "media_views": 195,
-    "media_reach": 158,
+    "media_views": 198,
+    "media_reach": 159,
     "media_like_count": 0,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 9647,
-    "media_reel_skip_rate": 0.411
+    "media_reel_avg_watch_time": 9598,
+    "media_reel_skip_rate": 0.415
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 7.4208,
-   "lift": -2.8923
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 7.4231,
+   "lift": -2.8673
   },
   {
    "n": 18,
@@ -725,18 +725,18 @@
    "media_id": "18087354197715946",
    "posted_at": "2026-11-22T01:44:34+0000",
    "metrics": {
-    "media_views": 16701,
-    "media_reach": 13825,
+    "media_views": 17054,
+    "media_reach": 14129,
     "media_like_count": 41,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 11244,
+    "media_reel_avg_watch_time": 11228,
     "media_reel_skip_rate": 0.268
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 12.3731,
-   "lift": 2.1288
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 12.3911,
+   "lift": 2.2143
   },
   {
    "n": 19,
@@ -768,18 +768,18 @@
    "media_id": "18009225045007910",
    "posted_at": "2026-11-22T17:44:37+0000",
    "metrics": {
-    "media_views": 204,
-    "media_reach": 164,
+    "media_views": 207,
+    "media_reach": 166,
     "media_like_count": 0,
     "media_comments_count": 0,
     "media_shares": 0,
     "media_saved": 0,
-    "media_reel_avg_watch_time": 9453,
-    "media_reel_skip_rate": 0.374
+    "media_reel_avg_watch_time": 9367,
+    "media_reel_skip_rate": 0.376
    },
-   "metrics_at": "2026-11-23T17:42:44+00:00",
-   "score": 7.5203,
-   "lift": -2.8152
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 7.5222,
+   "lift": -2.8125
   },
   {
    "n": 20,
@@ -838,7 +838,49 @@
    },
    "file": "videos/021-crusher-seed110-rot2.mp4",
    "media_id": "18125356520515272",
-   "posted_at": "2026-11-23T17:44:43+00:00"
+   "posted_at": "2026-11-23T17:44:33+0000",
+   "metrics": {
+    "media_views": 2117,
+    "media_reach": 1777,
+    "media_like_count": 6,
+    "media_comments_count": 0,
+    "media_shares": 0,
+    "media_saved": 0,
+    "media_reel_avg_watch_time": 9452,
+    "media_reel_skip_rate": 0.359
+   },
+   "metrics_at": "2026-11-24T02:42:59+00:00",
+   "score": 9.9563,
+   "lift": -0.3802
+  },
+  {
+   "n": 22,
+   "seed": 112,
+   "rot": 3,
+   "recipe": {
+    "arena": "square",
+    "spin": -1,
+    "angle": 90,
+    "palette": "pastel",
+    "bg": "ringplanet",
+    "fx": "glow",
+    "ball": "shine",
+    "ball_r": 7.5,
+    "mult": 8,
+    "shake": 1,
+    "counter": 0,
+    "sound": "classic",
+    "field": "pull",
+    "pegs": "arc",
+    "bounce": "normal",
+    "hook": 1,
+    "ask": 2,
+    "force": 0.98,
+    "pull": 2.36,
+    "assist": 1.64
+   },
+   "file": "videos/022-crusher-seed112-rot3.mp4",
+   "media_id": null
   }
  ]
 }
