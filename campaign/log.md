@@ -12,3 +12,6 @@
 - 2026-11-23 | naya-tiktok | seed 99 | nebula | hook: Rock bottom looks different when you know it's only the beginning | lyric: I might hit record
 - 2026-11-23 | naya-instagram | seed 103 | hangar | hook: Nobody saw the beginning of my glow-up | lyric: Nobody but this camera
 - 2026-11-23 | iceberg-tiktok | seed 107 | hangar | hook: Count to 3 | lyric: none
+- 2026-11-24 | naya-tiktok | seed 119 | ballpark | hook: For anyone quietly rebuilding their life | lyric: Good things ignored / Tend to want more
+- 2026-11-24 | naya-instagram | seed 129 | nebula | hook: When you grow in silence but the camera sees everything | lyric: When I have more / It's less of you
+- 2026-11-24 | iceberg-tiktok | seed 130 | ballpark | hook: This should not be possible | lyric: none
