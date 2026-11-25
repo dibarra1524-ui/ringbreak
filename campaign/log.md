@@ -15,3 +15,6 @@
 - 2026-11-24 | naya-tiktok | seed 119 | ballpark | hook: For anyone quietly rebuilding their life | lyric: Good things ignored / Tend to want more
 - 2026-11-24 | naya-instagram | seed 129 | nebula | hook: When you grow in silence but the camera sees everything | lyric: When I have more / It's less of you
 - 2026-11-24 | iceberg-tiktok | seed 130 | ballpark | hook: This should not be possible | lyric: none
+- 2026-11-25 | naya-tiktok | seed 134 | synthwave | hook: POV: you finally outgrow what kept you small | lyric: What do I do / to outgrow you?
+- 2026-11-25 | naya-instagram | seed 135 | twinsuns | hook: POV: documenting rock bottom because one day it'll be the before | lyric: Nobody got me
+- 2026-11-25 | iceberg-tiktok | seed 137 | hyperspace | hook: Wait for it... | lyric: none
