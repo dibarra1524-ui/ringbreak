@@ -18,3 +18,5 @@
 - 2026-11-25 | naya-tiktok | seed 134 | synthwave | hook: POV: you finally outgrow what kept you small | lyric: What do I do / to outgrow you?
 - 2026-11-25 | naya-instagram | seed 135 | twinsuns | hook: POV: documenting rock bottom because one day it'll be the before | lyric: Nobody got me
 - 2026-11-25 | iceberg-tiktok | seed 137 | hyperspace | hook: Wait for it... | lyric: none
+- 2026-11-25 | kiiras-tiktok | seed 139 | twinsuns | hook: This is oddly satisfying | lyric: none
+- 2026-11-25 | kiiras-instagram | seed 145 | neoncity | hook: Wait for the ring | lyric: none
