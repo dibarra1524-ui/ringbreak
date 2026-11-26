@@ -20,3 +20,6 @@
 - 2026-11-25 | iceberg-tiktok | seed 137 | hyperspace | hook: Wait for it... | lyric: none
 - 2026-11-25 | kiiras-tiktok | seed 139 | twinsuns | hook: This is oddly satisfying | lyric: none
 - 2026-11-25 | kiiras-instagram | seed 145 | neoncity | hook: Wait for the ring | lyric: none
+- 2026-11-26 | naya-tiktok | seed 148 | synthwave | hook: For the version of me that kept going when nobody was watching | lyric: I might hit record
+- 2026-11-26 | naya-instagram | seed 149 | neoncity | hook: Rock bottom looks different when you know it's only the beginning | lyric: Nobody but this camera
+- 2026-11-26 | iceberg-tiktok | seed 152 | synthwave | hook: 4,000 balls vs one ring | lyric: none
