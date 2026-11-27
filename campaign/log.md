@@ -23,3 +23,6 @@
 - 2026-11-26 | naya-tiktok | seed 148 | synthwave | hook: For the version of me that kept going when nobody was watching | lyric: I might hit record
 - 2026-11-26 | naya-instagram | seed 149 | neoncity | hook: Rock bottom looks different when you know it's only the beginning | lyric: Nobody but this camera
 - 2026-11-26 | iceberg-tiktok | seed 152 | synthwave | hook: 4,000 balls vs one ring | lyric: none
+- 2026-11-27 | naya-tiktok | seed 164 | hangar | hook: Nobody saw the beginning of my glow-up | lyric: Good things ignored / Tend to want more
+- 2026-11-27 | naya-instagram | seed 170 | synthwave | hook: For anyone quietly rebuilding their life | lyric: When I have more / It's less of you
+- 2026-11-27 | iceberg-tiktok | seed 171 | synthwave | hook: Physics said no | lyric: none
